@@ -76,7 +76,7 @@ ggstatsplotlyServer <-function(id) {
           axis.line = element_line(colour = "grey50"),
           plot.background = element_rect(fill = '#fbf9f4', color = '#fbf9f4')
         )
-      plotly::ggplotly(p,width = 1000, height = 600)
+      plotly::ggplotly(p,width = 1200, height = 800)
     })
   }
   

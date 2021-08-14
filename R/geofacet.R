@@ -69,7 +69,10 @@ geofacetServer <-function(id) {
         filter(yearsoflease<=input$lease)%>%
         filter(resale_price>=input$pricerange[1] & resale_price<=input$pricerange[2])
       
-      ggplot(data,aes(flat_type,fill=flat_type))+geom_bar()+theme_bw()+coord_flip() +facet_geo(~ town,grid=SGNewTownsgrid)+labs(x="Flat Types", y= "Transaction Volumes")+theme(axis.text.y = element_blank(),axis.ticks.y = element_blank())+ggtitle("Transcation Volumes based on Flat Types")
+      ggplot(data,aes(flat_type,fill=flat_type))+geom_bar()+theme_bw()+coord_flip() +
+        facet_geo(~ town,grid=SGNewTownsgrid)+
+        labs(x="Flat Types", y= "Transaction Volumes")+
+        theme(axis.title=element_text(size=12,face="bold"), plot.title = element_text(color = "red", size = 20, face = "bold"),axis.text.y = element_blank(),axis.ticks.y = element_blank())+ggtitle("Transcation Volumes based on Flat Types")
       
     },height = 800, width = 1200)
   }

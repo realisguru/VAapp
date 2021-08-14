@@ -35,7 +35,7 @@ plotlyUI <- function(id) {
         
         mainPanel(
           
-          plotlyOutput(ns("plotly"))
+          plotlyOutput(ns("plotlyP"))
           
         )
         
@@ -49,18 +49,17 @@ plotlyServer <-function(id) {
   moduleServer(id,function(input,
                            output,
                            session) {
-    output$plotly <- renderPlotly({
+  
+    output$plotlyP <- renderPlotly({
       data<- hdbtrans_data%>%
         filter(Year==input$year)%>%
         filter(town==input$town)%>%
         filter(flat_type==input$flat_type)%>%
         filter(yearsoflease<=input$lease)%>%
-        
         arrange(transdate)
       
-      plot_ly(data)%>%
-        
-        add_trace(x=~transdate,y=~resale_price,type="bar",name="Transaction Volumes",transforms = list(
+        plot_ly(data)%>%
+        add_trace(x=~transdate,y=~resale_price,type="bar",name="Transactions",transforms = list(
           list(
             type = 'aggregate',
             groups = ~transdate,
@@ -71,7 +70,7 @@ plotlyServer <-function(id) {
             )
           )
         ))%>%
-        add_trace(x=~transdate,y=~resale_price,name="Average Resale Prices",type="scatter",mode="lines+markers",yaxis="y2",transforms = list(
+        add_trace(x=~transdate,y=~resale_price,name="Resale Prices",type="scatter",mode="lines+markers",yaxis="y2",transforms = list(
           list(
             type = 'aggregate',
             groups = ~transdate,
@@ -82,11 +81,11 @@ plotlyServer <-function(id) {
             )
           )
         ))%>%
-        layout(title = 'Transaction Volumes vs Average Resale Price',
+        layout(title = 'Transaction Volumes vs Average Resale Price',width = 1200, height = 800,
                xaxis = list(title = "Transaction Period"),
                yaxis = list(side = 'left', title = 'Transaction Volumes', showgrid = FALSE, zeroline = FALSE),
                yaxis2 = list(side = 'right', overlaying = "y", title = 'Average Resale Prices', showgrid = FALSE, zeroline = FALSE),hovermode = "x unified")
-      
+        
     })    
     
   }

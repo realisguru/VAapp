@@ -47,7 +47,13 @@ geofacetPServer <-function(id) {
         filter(Year==input$year)%>%
         filter(yearsoflease<=input$lease)%>%
         filter(flat_type==input$flat_type)
-      ggplot(data,aes(x=transdate,y=resale_price,color=Year))+geom_line(stat = "summary", fun = "mean",size=1,color="blue")+theme_bw() +facet_geo(~ town,grid=SGNewTownsgrid,scales = "free_y")+labs(x="Transaction Dates", y= "Average Transaction Price") + scale_x_date(date_labels = "%b", date_breaks = "3 month") + ggtitle("Average Transcation Prices Across Towns") 
+      ggplot(data,aes(x=transdate,y=resale_price,color=Year))+
+        geom_line(stat = "summary", fun = "mean",size=1,color="blue")+
+        theme_bw() +facet_geo(~ town,grid=SGNewTownsgrid,scales = "free_y")+
+        labs(x="Transaction Dates", y= "Average Transaction Price") + 
+        scale_x_date(date_labels = "%b", date_breaks = "3 month") + 
+        ggtitle("Average Transaction Prices Across Towns") + 
+        theme(axis.title=element_text(size=12,face="bold"),plot.title = element_text(color = "red", size = 20, face = "bold"))
       
     },height = 800, width = 1200)
   }
