@@ -57,7 +57,7 @@ ui <- navbarPage(
     ,theme = bslib::bs_theme(bootswatch = "darkly")
 )
 
-# Define server logic required to draw a histogram
+# Define server 
 server <- function(input, output,session) {
     
     geofacetServer("geofacet")
