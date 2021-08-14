@@ -72,7 +72,7 @@ geofacetServer <-function(id) {
       ggplot(data,aes(flat_type,fill=flat_type))+geom_bar()+theme_bw()+coord_flip() +
         facet_geo(~ town,grid=SGNewTownsgrid)+
         labs(x="Flat Types", y= "Transaction Volumes")+
-        theme(axis.title=element_text(size=12,face="bold"), plot.title = element_text(color = "red", size = 20, face = "bold"),axis.text.y = element_blank(),axis.ticks.y = element_blank())+ggtitle("Transcation Volumes based on Flat Types")
+        theme(axis.title=element_text(size=12,face="bold"), plot.title = element_text(color = "red", size = 20, face = "bold"),axis.text.y = element_blank(),axis.ticks.y = element_blank())+ggtitle("Transaction Volumes based on Flat Types")
       
     },height = 800, width = 1200)
   }
