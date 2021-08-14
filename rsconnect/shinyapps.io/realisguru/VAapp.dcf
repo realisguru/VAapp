@@ -1,0 +1,13 @@
+name: VAapp
+title: VAapp
+username:
+account: realisguru
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4491965
+bundleId: 4922224
+url: https://realisguru.shinyapps.io/VAapp/
+when: 1628921878.67502
+lastSyncTime: 1628921878.67502
+asMultiple: FALSE
+asStatic: FALSE
